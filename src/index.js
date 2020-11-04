@@ -13,3 +13,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+const getToys = document.addEventListener("DOMContentLoaded", () => {
+  return fetch("http://localhost:3000/toys", {
+  })
+  .then(resp => response.json)
+  .then(toys => toys.forEach(showToys()))
+})
+
+function showToys(toy) {
+  let thisToy = toy
+  let toyDiv = ""
+  let htmlSegment = `<div class="card">
+  <h2>${toy.name}</h2>
+  <img src="${toy.image}" class="toy-avatar">
+  <p>${toy.likes}</p></div>`
+  toyDiv += htmlSegment
+  let btn = document.createElement("BUTTON");
+  btn.class = "like-btn"
+  toyDiv.append(btn)
+}
